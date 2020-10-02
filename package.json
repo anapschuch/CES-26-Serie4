@@ -1,0 +1,27 @@
+{
+  "name": "ces-26-serie4",
+  "version": "1.0.0",
+  "description": "Quarta série de exercícios da disciplina CES-26",
+  "main": "server.js",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "node": "^14.13.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anapschuch/CES-26-Serie4.git"
+  },
+  "author": "Ana Paula Schuch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anapschuch/CES-26-Serie4/issues"
+  },
+  "homepage": "https://github.com/anapschuch/CES-26-Serie4#readme"
+}

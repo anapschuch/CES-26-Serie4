@@ -1,0 +1,14 @@
+#head{
+    background-color: rgb(20, 114, 114);
+    opacity: 85%;
+    padding: 20px;
+  }
+
+  .botao {
+    border: 1px solid;
+    border-radius: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    background:  rgb(121, 160, 160);
+    padding: 10px 10px;
+  }

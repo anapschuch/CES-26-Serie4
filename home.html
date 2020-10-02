@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <p id="head" align="center" style="color:white">
+        Nome: <%=dados.nome %> <br>
+        Idade: <%=dados.idade %> <br>
+        Email: <%=dados.email %>
+
+    </p>
+</head>
+
+<body>
+
+    <div align="center">
+        <p> Selecione o arquivo: </p> <br>
+
+        <form action="http://127.0.0.1:8081/file_upload" method="POST" enctype="multipart/form-data"
+            onSubmit="return checaDados()" name="dados">
+            <input type="file" name="file" size="50" name="file" />
+            <br />
+            <br>
+            <br>
+            <button type="submit" class="btn btn-info">Enviar</button>
+        </form>
+
+    </div>
+</body>
+
+<script>
+
+    function checaDados() {
+        if (document.dados.file.value == '') {
+            alert('Escolha um arquivo')
+            return false
+        }
+        return true
+    }
+</script>
+
+</html>

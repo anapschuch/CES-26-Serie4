@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <p id="head" align="center" style="color:white">Seja bem-vindo a
+        minha aplicação! <br>
+        Desenvolvido por: Ana Paula Lopes Schuch (COMP 22)</p>
+
+
+</head>
+
+<body>
+    <div align="center">
+        <div class="card" style="width: 40%;">
+            <div class="card-body">
+                <p> Preencha o formulário abaixo!</p>
+
+                <form action="http://127.0.0.1:8081/form_get" method="GET" onSubmit="return checaDados()" name="dados">
+
+                    <div class="form-group row">
+                        <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nome">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="idade" class="col-sm-2 col-form-label">Idade</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" name="idade">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-2 col-form-label">E-mail</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info">Enviar</button>
+                </form>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+
+
+        <div class="botao" id="botao" onclick="mostrarDados()" style="color:white">
+            Exibir Dados
+        </div>
+        <p id="textoBotao"></p>
+        <p id="textoBotao2"></p>
+
+        <img src="/flores.jpg" style="width: 25%;" />
+        <br>
+        <br>
+    </div>
+</body>
+<script>
+    function mostrarDados() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                var texto = xhttp.responseText;
+                document.getElementById("textoBotao").innerHTML = texto;
+                texto = JSON.parse(texto);
+                document.getElementById("textoBotao2").innerHTML = texto.Aplicação + '<br>' + texto.Cadeira + '<br>' + texto.Instituição;
+            };
+        }
+        xhttp.open("GET", "dados.txt", true);
+        xhttp.send();
+
+    }
+
+    function checaDados() {
+        if (document.dados.nome.value == '') {
+            alert('Preencha seu nome')
+            return false
+        } else if (document.dados.idade.value == '') {
+            alert('Preencha sua idade')
+            return false
+        } else if (document.dados.email.value == '') {
+            alert('Preencha seu email')
+            return false
+        }
+        return true
+    }
+</script>
+
+</html>
