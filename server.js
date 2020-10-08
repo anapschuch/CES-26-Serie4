@@ -22,12 +22,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage })
 
+// página inicial
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + "/" + "inicio.html");
+    res.sendFile(__dirname + "/views/inicio.html");
 })
 
 app.post('/file_upload', upload.single('file'),
-    (req, res) => res.sendFile(__dirname + "/" + "arquivo.html"));
+    (req, res) => res.sendFile(__dirname + "/views/uploadSucesso.html"));
 
 // pega os dados do formulário e manda para 
 // a próxima página
@@ -38,7 +39,7 @@ app.get('/form_get', function (req, res) {
         email: req.query.email
     };
     
-    res.render(__dirname  + "/home.html", {dados: response})
+    res.render(__dirname  + "/views/uploadArquivo.html", {dados: response})
 })
 
 var server = app.listen(8081, function () {
